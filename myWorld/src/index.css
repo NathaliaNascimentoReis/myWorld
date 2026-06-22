@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@import "tailwindcss";
+
+@theme {
+  /* Cores da Paleta Dreamcore */
+  --color-dream-dark: #0d0d1a;
+  --color-dream-lavender: #b8a9e0;
+  --color-dream-pink: #e8a0bf;
+  --color-dream-moonlight: #f0eeff;
+  --color-dream-cyan: #7ecef4;
+
+  /* Fontes do Tema */
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* Animações das Estrelas Flutuantes */
+  --animate-float-slow: floatStar 8s ease-in-out infinite;
+  --animate-float-medium: floatStar 5s ease-in-out infinite;
+  --animate-float-fast: floatStar 3.5s ease-in-out infinite;
+  --animate-pulse-soft: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes floatStar {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.1; }
+  50% { transform: translateY(-20px) scale(1.4); opacity: 0.85; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
