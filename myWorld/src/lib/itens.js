@@ -1,6 +1,6 @@
 import { supabase } from './supabaseClient';
 
-export const getIdeias = async () => {
+export const getItens = async () => {
     const { data, error } = await supabase
         .from('itens')
         .select('*')
