@@ -10,15 +10,16 @@ export function useItens() {
         async function fetchData() {
             try {
                 const data = await getItens();
-                setItens(data);
+                setItens(data); // O setState só pode ser chamado de forma segura aqui
             } catch (err) {
                 setError(err.message);
             } finally {
                 setLoading(false);
             }
         }
+
         fetchData();
-    }, []);
+    }, []); // ◄--- ESSENCIAL: Garanta que este colchete está vazio! Se houver algo dentro, causa o loop.
 
     return { itens, loading, error };
 }

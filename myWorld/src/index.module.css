@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  background-color: #0d0d1a; /* Fixa a cor de fundo oficial da paleta */
-  @apply text-dream-moonlight font-sans antialiased selection:bg-dream-pink/20 selection:text-dream-pink;
-  overflow-x: hidden;
+:global(body) {
+    background-color: #0d0d1a !important;
+    color: #f0eeff !important;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
