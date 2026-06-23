@@ -7,9 +7,9 @@ export default function ModalDetalhes({ ativo, aoFechar }) {
     const ehItem = ativo.tipo === 'item';
 
     return (
-        // Fundo com sombra escura (Backdrop) que centraliza o conteúdo
+        /* REFORÇADO: Fundo com sombra escura (Backdrop) ocupando 100% da viewport */
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-fade-in"
+            className="fixed top-0 left-0 w-screen h-screen z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-fade-in"
             onClick={aoFechar} // Fecha ao clicar no fundo escuro
         >
             {/* Card inteiro no meio da página */}
