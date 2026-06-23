@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useMural } from '../hooks/useMural';
+import SecaoMensagens from './SecaoMensagens';
 import ModalDetalhes from './ModalDetalhes';
 
 export default function MuralItens() {
-    const { dados, loading, error } = useMural();
+    const { dados, loading, error, atualizarMensagens } = useMural();
     const [elementoSelecionado, setElementoSelecionado] = useState(null);
 
     if (loading)
@@ -25,7 +26,8 @@ export default function MuralItens() {
         <div
             key={item.id}
             onClick={() => setElementoSelecionado({ ...item, tipo })}
-            className="group relative bg-[#131326] border border-dream-lavender/10 hover:border-dream-cyan/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_4px_20px_rgba(126,206,244,0.05)] cursor-pointer">
+            className="group relative bg-[#131326] border border-dream-lavender/10 hover:border-dream-cyan/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_4px_20px_rgba(126,206,244,0.05)] cursor-pointer"
+        >
             {/* Exibe a foto se ela existir */}
             {(item.imagem || item.imagem_url) && (
                 <div className="w-full h-40 overflow-hidden bg-dream-dark">
@@ -133,11 +135,14 @@ export default function MuralItens() {
                 )}
             </section>
 
-            {/* O MODAL QUE CENTRALIZA NO MEIO DA TELA */}
+            {/* Modal único controlado pelo clique de qualquer card */}
             <ModalDetalhes
                 ativo={elementoSelecionado}
                 aoFechar={() => setElementoSelecionado(null)}
             />
+
+            {/* Seção única de Mensagens no final absoluto da página */}
+            <SecaoMensagens mensagens={dados.mensagens} aoEnviarSucesso={atualizarMensagens} />
         </div>
     );
 }
