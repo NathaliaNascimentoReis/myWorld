@@ -6,3 +6,14 @@
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
